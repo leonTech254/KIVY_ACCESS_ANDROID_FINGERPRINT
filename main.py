@@ -17,6 +17,10 @@ class MainApp(MDApp):
         for screen in screens:
             self.wm.add_widget(screen)
         return self.wm
+    def my_auth_callback(self, args):
+            MDApp.get_running_app().some_string = str(args)
+            if str(args)=="success":
+                print("success")
     def AuthFunc(self):
          if str(Bioo().get_auth()) == "0":
                 Bioo().auth_now(self.my_auth_callback)
