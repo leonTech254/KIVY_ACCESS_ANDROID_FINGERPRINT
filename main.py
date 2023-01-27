@@ -2,6 +2,8 @@ from kivymd.app import MDApp
 from kivy.uix.screenmanager import Screen,ScreenManager
 from kivy.lang.builder import Builder
 
+from BIOMETRIC.biometric import Bioo,run_on_ui_thread
+
 class MainScreen(Screen):
     pass
 class WindowManager(ScreenManager):
@@ -16,7 +18,8 @@ class MainApp(MDApp):
             self.wm.add_widget(screen)
         return self.wm
     def AuthFunc(self):
-        pass
+         if str(Bioo().get_auth()) == "0":
+                Bioo().auth_now(self.my_auth_callback)
    
 if __name__=="__main__": 
     MainApp().run()
