@@ -1,0 +1,41 @@
+<MainScreen>:
+    MDBoxLayout:
+        orientation:"vertical"
+        spacing: '10dp'
+        MDTopAppBar:
+            title: 'ACCESS FINGERPRINT'
+            pos_hint: {"top": 1}
+            elevation: 4
+        MDBoxLayout:
+            adaptive_height:True
+            height: root.height/2
+            orientation: 'vertical'
+            MDCard:
+                orientation:"vertical"
+                padding:"10dp"
+                size_hint: None, None
+                size: root.width/2,root.width/2
+                radius:root.width/2
+                pos_hint:{'center_x':.5}
+                FitImage:
+                    id:imageProfile
+                    source:"./logo.png"
+                    radius:[root.width/2,]
+        MDLabel:
+            text:"WELCOME TO LEON TEST APP" 
+            halign:"center"
+            bold:True
+            adaptive_size:True
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            valign:"center"
+        MDLabel:
+            text:"click the below button to access android fingerprint fingerprint"
+            adaptive_size:True
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            halign:"center"
+            valign:"center"
+        MDRaisedButton:
+            text:"CLICK TO AUTHENTICATE"
+            pos_hint:{'center_x':.5,'center_y':.5}
+            on_press:app.AuthFunc("registerScreen")
+        Widget:
